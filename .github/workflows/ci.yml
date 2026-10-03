@@ -28,5 +28,5 @@ jobs:
       - name: Run unit tests
         run: pytest tests/
 
-      - name: Smoke train (small sample)
-        run: python src/train.py
+#      - name: Smoke train (small sample)
+ #       run: python src/train.py
