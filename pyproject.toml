@@ -1,0 +1,3 @@
+
+[tool.ruff.lint.per-file-ignores]
+"notebooks/*" = ["E402"]

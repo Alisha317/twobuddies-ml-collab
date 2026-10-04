@@ -1,0 +1,10 @@
+scikit-learn
+pandas
+numpy
+pytest
+ruff
+jupytext
+nbstripout
+pyyaml
+dvc
+dvc-s3

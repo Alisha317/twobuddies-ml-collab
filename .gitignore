@@ -1,6 +1,9 @@
-data/
-models/
+data/raw/*.csv
+data/processed/
 .env
 __pycache__/
 .venv/
 mlruns/
+.virtual_documents/
+.ipynb_checkpoints/
+models/
