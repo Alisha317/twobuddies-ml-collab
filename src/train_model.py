@@ -1,7 +1,8 @@
+import os
+import pickle
+
 import pandas as pd
 import yaml
-import pickle
-import os
 from sklearn.ensemble import RandomForestClassifier
 
 with open("params.yaml") as f:
