@@ -1,7 +1,8 @@
+import os
+import sys
+
 import pandas as pd
 import yaml
-import sys
-import os
 from sklearn.model_selection import train_test_split
 
 sys.path.insert(0, os.path.dirname(__file__))
