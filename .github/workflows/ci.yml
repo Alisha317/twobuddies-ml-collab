@@ -28,5 +28,16 @@ jobs:
       - name: Run unit tests
         run: pytest tests/
 
-#      - name: Smoke train (small sample)
- #       run: python src/train.py
+      - name: Install DVC
+        run: pip install dvc dvc-s3
+
+      - name: Configure DVC remote credentials
+        run: |
+          dvc remote modify storage --local access_key_id ${{ secrets.DAGSHUB_TOKEN }}
+          dvc remote modify storage --local secret_access_key ${{ secrets.DAGSHUB_TOKEN }}
+
+      - name: Pull data
+        run: dvc pull
+
+      - name: Reproduce pipeline (smoke test)
+        run: dvc repro
