@@ -1,0 +1,39 @@
+stages:
+  prepare:
+    cmd: python src/prepare.py
+    deps:
+      - src/prepare.py
+      - src/features.py
+      - data/raw/titanic.csv
+    params:
+      - seed
+      - split.test_size
+    outs:
+      - data/processed/X_train.csv
+      - data/processed/X_test.csv
+      - data/processed/y_train.csv
+      - data/processed/y_test.csv
+
+  train:
+    cmd: python src/train_model.py
+    deps:
+      - src/train_model.py
+      - data/processed/X_train.csv
+      - data/processed/y_train.csv
+    params:
+      - seed
+      - train.n_estimators
+      - train.max_depth
+    outs:
+      - models/model.pkl
+
+  evaluate:
+    cmd: python src/evaluate.py
+    deps:
+      - src/evaluate.py
+      - models/model.pkl
+      - data/processed/X_test.csv
+      - data/processed/y_test.csv
+    metrics:
+      - metrics.json:
+          cache: false

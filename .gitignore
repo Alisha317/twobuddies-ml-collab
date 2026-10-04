@@ -1,8 +1,8 @@
+data/
 models/
 .env
 __pycache__/
 .venv/
 mlruns/
-.ipynb_checkpoints/
-.ipynb_checkpoints/
+.virtual_documents/
 .ipynb_checkpoints/
