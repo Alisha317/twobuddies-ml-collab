@@ -36,6 +36,7 @@ df.describe()
 
 # %%
 import sys
+
 sys.path.insert(0, "../src")
 from features import clean_titanic_data
 

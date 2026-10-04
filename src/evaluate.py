@@ -1,7 +1,8 @@
-import pandas as pd
-import pickle
 import json
+import pickle
 import subprocess
+
+import pandas as pd
 from sklearn.metrics import accuracy_score
 
 with open("models/model.pkl", "rb") as f:
@@ -15,7 +16,7 @@ accuracy = accuracy_score(y_test, predictions)
 
 try:
     commit_sha = subprocess.check_output(["git", "rev-parse", "HEAD"]).decode().strip()
-except Exception:
+except (subprocess.CalledProcessError, FileNotFoundError):
     commit_sha = "unknown"
 
 metrics = {"accuracy": accuracy, "commit_sha": commit_sha}
