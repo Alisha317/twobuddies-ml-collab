@@ -17,35 +17,35 @@ stages:
       size: 1075
     params:
       params.yaml:
-        seed: 42
+        seed: 99
         split.test_size: 0.2
     outs:
     - path: data/processed/X_test.csv
       hash: md5
-      md5: cdc71e9199baf824294ad99c5b195eaa
-      size: 3429
+      md5: f04e8f7e7d9fa5295d38a25839340cd1
+      size: 3440
     - path: data/processed/X_train.csv
       hash: md5
-      md5: 24425d08287013a845ce73ff7b8460ad
-      size: 13576
+      md5: 7cf49767c384c8d460beb03400b6d936
+      size: 13565
     - path: data/processed/y_test.csv
       hash: md5
-      md5: 36026b6df1933512db0cca4ee702f16d
+      md5: 0b5f4a597df5f9854915c544c635580d
       size: 365
     - path: data/processed/y_train.csv
       hash: md5
-      md5: 4cfacc80e44933ed36ae00ada26b7dd6
+      md5: a460c3c4b232cfa3bba8f7586b501cee
       size: 1431
   train:
     cmd: python src/train_model.py
     deps:
     - path: data/processed/X_train.csv
       hash: md5
-      md5: 24425d08287013a845ce73ff7b8460ad
-      size: 13576
+      md5: 7cf49767c384c8d460beb03400b6d936
+      size: 13565
     - path: data/processed/y_train.csv
       hash: md5
-      md5: 4cfacc80e44933ed36ae00ada26b7dd6
+      md5: a460c3c4b232cfa3bba8f7586b501cee
       size: 1431
     - path: src/train_model.py
       hash: md5
@@ -53,29 +53,29 @@ stages:
       size: 588
     params:
       params.yaml:
-        seed: 42
+        seed: 99
         train.max_depth: 4
         train.n_estimators: 100
     outs:
     - path: models/model.pkl
       hash: md5
-      md5: 74c1c7ed85956baa9028f4762cf999da
-      size: 237298
+      md5: e2dc95b687b157f7d0b3890d40022011
+      size: 250421
   evaluate:
     cmd: python src/evaluate.py
     deps:
     - path: data/processed/X_test.csv
       hash: md5
-      md5: cdc71e9199baf824294ad99c5b195eaa
-      size: 3429
+      md5: f04e8f7e7d9fa5295d38a25839340cd1
+      size: 3440
     - path: data/processed/y_test.csv
       hash: md5
-      md5: 36026b6df1933512db0cca4ee702f16d
+      md5: 0b5f4a597df5f9854915c544c635580d
       size: 365
     - path: models/model.pkl
       hash: md5
-      md5: 74c1c7ed85956baa9028f4762cf999da
-      size: 237298
+      md5: e2dc95b687b157f7d0b3890d40022011
+      size: 250421
     - path: src/evaluate.py
       hash: md5
       md5: 48f61051ed82a442ba13295aafb39eb6
@@ -83,5 +83,5 @@ stages:
     outs:
     - path: metrics.json
       hash: md5
-      md5: 8047644c3f43138cc2d24360081e74f3
+      md5: a045d41794c0bc551cf2900751b1a371
       size: 96
