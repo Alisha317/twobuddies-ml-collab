@@ -1,3 +1,5 @@
+data/raw/*.csv
+data/processed/
 .env
 __pycache__/
 .venv/
