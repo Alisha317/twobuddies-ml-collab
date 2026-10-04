@@ -3,3 +3,5 @@ models/
 __pycache__/
 .venv/
 mlruns/
+.virtual_documents/
+.ipynb_checkpoints/
